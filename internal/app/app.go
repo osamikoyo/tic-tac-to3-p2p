@@ -1,9 +1,12 @@
 package app
 
 import (
+	"bufio"
 	"context"
+	"fmt"
 	"github.com/osamikoyo/tic-tac-toe-p2p/internal/host"
 	"github.com/osamikoyo/tic-tac-toe-p2p/pkg/loger"
+	"os"
 )
 
 type App struct {
@@ -25,5 +28,20 @@ func Init(port int) (App, error) {
 }
 
 func (a App) Run() error {
+	scanner := bufio.NewScanner(os.Stdin)
+	fmt.Println("Commands:")
+	fmt.Println("/connect <peer-address> - Connect to a peer")
+	fmt.Println("/quit - Exit the chat")
+	fmt.Print("> ")
 
+	for scanner.Scan() {
+		input := scanner.Text()
+		if input == "/quit" {
+			break
+		}
+
+		if input == "/get field" {
+
+		}
+	}
 }
